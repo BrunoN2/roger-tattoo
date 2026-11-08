@@ -22,7 +22,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAssistant, onScrollTo }) => {
           poster={studioHeroImg}
           className="w-full h-full object-cover object-center scale-100 sm:scale-105 opacity-65 sm:opacity-75 brightness-90 filter"
         >
-          <source src="/assets/aistudio/gemini_generated_video_244007a4_2c987808.mp4" type="video/mp4" />
+          <source src="./assets/aistudio/gemini_generated_video_244007a4_2c987808.mp4" type="video/mp4" />
         </video>
         
         {/* Directional gradient overlay: darker on left for crisp readability, open on right for video clarity */}

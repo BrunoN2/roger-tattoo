@@ -1,0 +1,6 @@
+{
+  "name": "Roger Tattoo & Piercing",
+  "description": "Estúdio privativo de tatuagem autoral e body piercing em Laguna - SC. Orçamentos e agendamento exclusivo via WhatsApp com consultor virtual inteligente.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

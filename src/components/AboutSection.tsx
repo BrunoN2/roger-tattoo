@@ -12,7 +12,7 @@ export const AboutSection: React.FC = () => {
             <div className="absolute -inset-4 border border-amber-600/30 rounded-3xl translate-x-3 translate-y-3 -z-10" />
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-zinc-800 bg-zinc-900 group">
               <img
-                src="/assets/aistudio/c7d5dd4e-520d-4605-bb71-9b809d5fc13a_a3ab6242.JPG"
+                src="./assets/aistudio/c7d5dd4e-520d-4605-bb71-9b809d5fc13a_a3ab6242.JPG"
                 alt="Roger - Tatuador e Body Piercer do ROGER TATTOO em Laguna - SC"
                 className="w-full aspect-[4/5] object-cover filter contrast-[1.02] group-hover:scale-102 transition-transform duration-700"
                 style={{ objectPosition: '25% 42%' }}

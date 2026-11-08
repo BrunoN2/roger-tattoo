@@ -116,8 +116,10 @@ export const VirtualAssistantModal: React.FC<VirtualAssistantModalProps> = ({ is
               <Bot className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-cinzel text-sm sm:text-base font-bold text-white flex items-center gap-2">
-                Assistente Virtual ROGER TATTOO
+              <h3 className="font-cinzel text-sm sm:text-base font-bold text-white flex items-center gap-1.5">
+                <span>Assistente Virtual</span>
+                <span className="text-white">ROGER </span>
+                <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent">TATTOO</span>
               </h3>
               <p className="text-[11px] text-zinc-400">
                 Atendimento Inteligente 24h · Laguna - SC

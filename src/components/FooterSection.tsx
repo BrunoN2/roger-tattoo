@@ -46,8 +46,13 @@ export const FooterSection: React.FC = () => {
 
       {/* Bottom bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-zinc-800 pt-10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
-        <div className="text-xl font-black tracking-tighter text-zinc-400 uppercase flex items-center gap-1.5 font-cinzel">
-          <span className="text-amber-500">ROGER</span> TATTOO
+        <div className="text-xl font-black tracking-wider uppercase flex items-center gap-1.5 font-cinzel">
+          <span className="text-white">
+            ROGER
+          </span>
+          <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(245,158,11,0.55)]">
+            TATTOO
+          </span>
         </div>
         <p className="text-center md:text-left">
           &copy; {new Date().getFullYear()} Roger Tattoo Studio. Todos os direitos reservados. Laguna – SC.

@@ -1,11 +1,11 @@
+// LocationSection.tsx
 import React from 'react';
 import { MapPin, MessageCircle, ShieldCheck, Clock, Navigation, ExternalLink } from 'lucide-react';
 import { 
   OFFICIAL_PHONE, 
   DISPLAY_PHONE, 
   GOOGLE_MAPS_URL, 
-  GOOGLE_MAPS_DIRECTIONS_URL,
-  GOOGLE_MAPS_EMBED_URL 
+  GOOGLE_MAPS_DIRECTIONS_URL 
 } from '../utils/budget';
 
 export const LocationSection: React.FC = () => {
@@ -89,15 +89,19 @@ export const LocationSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Dark Mode Google Maps Embed */}
-          <div className="flex-1 w-full min-h-[360px] sm:min-h-[420px] rounded-2xl overflow-hidden border border-zinc-800 bg-[#16181d] relative shadow-2xl flex flex-col">
+          {/* Right Column: Authentic Studio Facade Photograph */}
+          <div className="flex-1 w-full min-h-[380px] sm:min-h-[440px] rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 relative shadow-2xl flex flex-col group">
             
-            {/* Top Bar for Map */}
+            {/* Top Bar for Studio Facade */}
             <div className="bg-zinc-950 px-4 py-3 border-b border-zinc-800 flex items-center justify-between text-xs text-zinc-300 z-10">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span className="font-semibold text-white">ROGER TATTOO Studio</span>
-                <span className="text-zinc-500 hidden sm:inline">· Bairro Progresso, Laguna - SC</span>
+                <span className="font-bold font-cinzel">
+                  <span className="text-white">ROGER </span>
+                  <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent">TATTOO</span>
+                  <span className="text-zinc-400 font-normal text-xs ml-1">Studio</span>
+                </span>
+                <span className="text-zinc-500 hidden sm:inline">· Fachada Oficial em Laguna - SC</span>
               </div>
               <a
                 href={GOOGLE_MAPS_URL}
@@ -110,30 +114,42 @@ export const LocationSection: React.FC = () => {
               </a>
             </div>
 
-            {/* Embedded Dark Theme Map */}
-            <div className="relative flex-1 w-full h-full min-h-[300px] bg-zinc-950 overflow-hidden">
-              <iframe
-                title="ROGER TATTOO Laguna SC - Google Maps Dark"
-                src={GOOGLE_MAPS_EMBED_URL}
-                className="w-full h-full absolute inset-0 border-0"
-                style={{
-                  filter: 'invert(90%) hue-rotate(180deg) brightness(95%) contrast(115%)',
-                  transform: 'scale(1.02)'
-                }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+            {/* Studio Facade Image with Luxury Overlays */}
+            <div className="relative flex-1 w-full min-h-[300px] overflow-hidden bg-zinc-900">
+              <img
+                src="./assets/aistudio/Captura_de_Tela_2026-11-08_a_s_13.03.05_8d59e01e.png"
+                alt="Fachada oficial do estúdio ROGER TATTOO em Laguna - SC"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                style={{ objectPosition: '50% 50%' }}
+                referrerPolicy="no-referrer"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-80" />
+              
+              {/* Badge on top of image */}
+              <div className="absolute top-4 left-4 bg-zinc-950/85 backdrop-blur-md border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full flex items-center gap-2 shadow-lg">
+                <MapPin size={13} className="text-amber-400" />
+                <span>Fachada Oficial do Estúdio</span>
+              </div>
+
+              {/* Informative overlay at bottom of image */}
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <p className="text-xs sm:text-sm font-bold font-cinzel text-zinc-100">
+                  Estúdio Privativo no Bairro Progresso
+                </p>
+                <p className="text-[11px] text-zinc-300 mt-0.5">
+                  Ao lado do Consultório Odontológico, próximo ao Fórum de Laguna
+                </p>
+              </div>
             </div>
 
-            {/* Bottom Bar for Map */}
-            <div className="bg-zinc-950 px-4 py-2.5 border-t border-zinc-800 flex items-center justify-between text-[11px] text-zinc-400 z-10">
+            {/* Bottom Bar */}
+            <div className="bg-zinc-950 px-4 py-3 border-t border-zinc-800 flex items-center justify-between text-[11px] text-zinc-400 z-10">
               <span className="flex items-center gap-1.5 text-zinc-300">
                 <MapPin className="w-3.5 h-3.5 text-amber-500" />
                 Perto do Fórum de Laguna
               </span>
               <span className="text-emerald-400 font-medium flex items-center gap-1">
-                <span>Atendimento Privativo</span>
+                <span>Atendimento 100% Privativo</span>
               </span>
             </div>
 

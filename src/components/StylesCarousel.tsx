@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, MessageCircle, Sparkles, Check, ArrowUpRight } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, MessageCircle, Sparkles, Check, ArrowUpRight, ChevronDown, Layers } from 'lucide-react';
 import { generateStyleWhatsAppLink } from '../utils/budget';
 
 // High-fidelity generated studio assets
 import realismImg from '../assets/images/showcase_realism_tattoo_1794111576857.jpg';
-import maoriVikingImg from '../assets/images/showcase_maori_viking_1794111577455.jpg';
+import maoriImg from '../assets/images/maori_tribal_tattoo_1794140723982.jpg';
+import norseVikingImg from '../assets/images/norse_viking_tattoo_1794140694466.jpg';
 import floralImg from '../assets/images/tattoo_floral_fineline_1794112966551.jpg';
 import egyptianImg from '../assets/images/tattoo_egyptian_god_1794112968280.jpg';
 import animeImg from '../assets/images/tattoo_anime_geek_1794112967302.jpg';
@@ -28,7 +29,7 @@ export const STYLES_CATALOG: StyleCategory[] = [
     tagline: 'Geometria sagrada, preenchimento sólido e respeito à musculatura',
     description: 'Projetos de inspiração polinésia que vestem a anatomia corporal com linhas imponentes, curvas dinâmicas e preenchimento preto puro.',
     highlights: ['Encaixe anatômico perfeito', 'Linhas de alta precisão', 'Simbologia de força e proteção'],
-    image: maoriVikingImg,
+    image: maoriImg,
     badge: 'Conceito Maori'
   },
   {
@@ -37,7 +38,7 @@ export const STYLES_CATALOG: StyleCategory[] = [
     tagline: 'Runas, nós celtas, elmos e mitologia nórdica',
     description: 'Composições detalhadas com nós entrelaçados, estética rúnica e deuses nórdicos com sombreamento profundo que valorizam ombros, braços e costas.',
     highlights: ['Trabalho de runas e nós entrelaçados', 'Contraste dramático', 'Estudo autoral na pele'],
-    image: maoriVikingImg,
+    image: norseVikingImg,
     badge: 'Conceito Viking'
   },
   {
@@ -99,9 +100,22 @@ export const STYLES_CATALOG: StyleCategory[] = [
 export const StylesCarousel: React.FC = () => {
   const [activeStyleId, setActiveStyleId] = useState<string>('Maori');
   const [selectedReference, setSelectedReference] = useState<string>('Maori');
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const currentIndex = STYLES_CATALOG.findIndex(s => s.id === activeStyleId);
   const currentStyle = STYLES_CATALOG[currentIndex] || STYLES_CATALOG[0];
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const handlePrev = () => {
     const nextIdx = (currentIndex - 1 + STYLES_CATALOG.length) % STYLES_CATALOG.length;
@@ -113,12 +127,17 @@ export const StylesCarousel: React.FC = () => {
     setActiveStyleId(STYLES_CATALOG[nextIdx].id);
   };
 
+  const handleSelectStyle = (id: string) => {
+    setActiveStyleId(id);
+    setIsDropdownOpen(false);
+  };
+
   return (
     <section id="portfolio" className="py-24 bg-zinc-900 border-t border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Title */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-4 font-cinzel">
             Escolha seu estilo
           </h2>
@@ -128,21 +147,107 @@ export const StylesCarousel: React.FC = () => {
           </p>
         </div>
 
-        {/* Style Selector Buttons (Tabs) */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
-          {STYLES_CATALOG.map((st) => (
+        {/* Clean Luxury Dropdown Menu (Substitui os botões soltos para não poluir a tela) */}
+        <div className="max-w-xl mx-auto mb-10 relative z-30" ref={dropdownRef}>
+          <div className="flex items-center gap-2">
             <button
-              key={st.id}
-              onClick={() => setActiveStyleId(st.id)}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
-                activeStyleId === st.id
-                  ? 'bg-amber-600 text-white shadow-[0_0_20px_rgba(217,119,6,0.4)] scale-105'
-                  : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700 hover:text-white'
-              }`}
+              onClick={handlePrev}
+              aria-label="Estilo anterior"
+              className="p-3.5 rounded-2xl bg-zinc-950 hover:bg-zinc-800 text-zinc-400 hover:text-amber-400 border border-zinc-800 transition-colors shadow-lg shrink-0"
+              title="Estilo anterior"
             >
-              {st.name.split('&')[0].trim()}
+              <ChevronLeft size={20} />
             </button>
-          ))}
+
+            {/* Main Dropdown Button */}
+            <div className="relative flex-1">
+              <button
+                type="button"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className={`w-full bg-zinc-950 border px-5 py-3.5 rounded-2xl flex items-center justify-between text-left transition-all duration-200 shadow-xl group ${
+                  isDropdownOpen
+                    ? 'border-amber-500 ring-2 ring-amber-500/20'
+                    : 'border-zinc-800 hover:border-zinc-700'
+                }`}
+              >
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0 group-hover:scale-105 transition-transform">
+                    <Layers size={18} />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-amber-500 block">
+                      Estilo Selecionado
+                    </span>
+                    <span className="text-base sm:text-lg font-bold text-white font-cinzel truncate block">
+                      {currentStyle.name}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2.5 shrink-0 pl-2">
+                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400">
+                    {currentIndex + 1} de {STYLES_CATALOG.length}
+                  </span>
+                  <div className={`p-1 rounded-lg text-zinc-400 group-hover:text-amber-400 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180 text-amber-400' : ''}`}>
+                    <ChevronDown size={20} />
+                  </div>
+                </div>
+              </button>
+
+              {/* Dropdown Popover List */}
+              {isDropdownOpen && (
+                <div className="absolute top-full left-0 right-0 mt-2 bg-zinc-950/98 backdrop-blur-xl border border-zinc-800 rounded-2xl shadow-2xl p-2 max-h-96 overflow-y-auto space-y-1 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-zinc-400 border-b border-zinc-900 flex justify-between items-center">
+                    <span>Todos os Estilos &amp; Serviços</span>
+                    <span className="text-amber-500">Toque para selecionar</span>
+                  </div>
+                  {STYLES_CATALOG.map((st, idx) => {
+                    const isSelected = st.id === activeStyleId;
+                    return (
+                      <button
+                        key={st.id}
+                        type="button"
+                        onClick={() => handleSelectStyle(st.id)}
+                        className={`w-full text-left px-4 py-3 rounded-xl transition-all flex items-center justify-between group ${
+                          isSelected
+                            ? 'bg-amber-600/15 border border-amber-500/40 text-white'
+                            : 'hover:bg-zinc-900 border border-transparent text-zinc-300 hover:text-white'
+                        }`}
+                      >
+                        <div className="min-w-0 pr-3">
+                          <div className="flex items-center gap-2">
+                            <span className={`text-xs font-bold font-cinzel ${isSelected ? 'text-amber-400' : 'text-zinc-200 group-hover:text-white'}`}>
+                              {st.name}
+                            </span>
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400">
+                              {st.badge}
+                            </span>
+                          </div>
+                          <p className="text-[11px] text-zinc-400 truncate mt-0.5">
+                            {st.tagline}
+                          </p>
+                        </div>
+                        {isSelected && (
+                          <div className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                            <Check size={14} />
+                          </div>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            <button
+              onClick={handleNext}
+              aria-label="Próximo estilo"
+              className="p-3.5 rounded-2xl bg-zinc-950 hover:bg-zinc-800 text-zinc-400 hover:text-amber-400 border border-zinc-800 transition-colors shadow-lg shrink-0"
+              title="Próximo estilo"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
         </div>
 
         {/* Interactive Feature Carousel Card */}

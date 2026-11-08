@@ -22,8 +22,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAssistant, onScrollTo }) =
           
           {/* Logo */}
           <div className="flex-shrink-0 cursor-pointer" onClick={() => handleNavClick('home')}>
-            <span className="text-xl sm:text-2xl font-black tracking-tighter text-white uppercase flex items-center gap-1.5 font-cinzel">
-              <span className="text-amber-500">ROGER</span> TATTOO
+            <span className="text-xl sm:text-2xl font-black tracking-wider uppercase flex items-center gap-1.5 font-cinzel">
+              <span className="text-white">
+                ROGER
+              </span>
+              <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_14px_rgba(245,158,11,0.65)]">
+                TATTOO
+              </span>
             </span>
           </div>
 

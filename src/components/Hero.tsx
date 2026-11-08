@@ -46,8 +46,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAssistant, onScrollTo }) => {
             <span className="text-zinc-400 hidden sm:inline">Horário Marcado</span>
           </div>
 
-          <h2 className="text-amber-500 font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-3 font-cinzel">
-            ROGER TATTOO · Estúdio Privativo
+          <h2 className="font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-3 font-cinzel flex items-center gap-1.5">
+            <span className="text-white font-black">
+              ROGER
+            </span>
+            <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-black drop-shadow-[0_0_14px_rgba(245,158,11,0.65)]">
+              TATTOO
+            </span>
+            <span className="text-zinc-500 font-normal ml-1">·</span>
+            <span className="text-zinc-400 font-semibold tracking-wider">Estúdio Privativo</span>
           </h2>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tight mb-5 leading-[1.08] font-cinzel">

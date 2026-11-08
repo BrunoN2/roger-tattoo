@@ -180,7 +180,9 @@ export const ReviewsSection: React.FC = () => {
           <div className="bg-zinc-900 border border-amber-500/30 rounded-2xl p-6 sm:p-8 mb-12 shadow-2xl animate-in fade-in duration-200">
             <div className="flex items-center justify-between pb-4 border-b border-zinc-800 mb-6">
               <div>
-                <h3 className="text-lg font-bold text-white font-cinzel">Deixe sua Avaliação para o ROGER TATTOO</h3>
+                <h3 className="text-lg font-bold text-white font-cinzel">
+                  Deixe sua Avaliação para o <span className="text-white">ROGER </span><span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-black">TATTOO</span>
+                </h3>
                 <p className="text-xs text-zinc-400">Compartilhe sua experiência de atendimento e resultado</p>
               </div>
               <button

@@ -10,7 +10,7 @@ import {
 
 export const LocationSection: React.FC = () => {
   return (
-    <section id="localizacao" className="py-24 bg-zinc-900 border-t border-zinc-800">
+    <section id="localizacao" className="py-16 sm:py-24 bg-zinc-900 border-t border-zinc-800 scroll-mt-16 sm:scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="bg-zinc-950 rounded-3xl p-6 sm:p-10 lg:p-12 border border-zinc-800 flex flex-col lg:flex-row items-stretch justify-between gap-10 shadow-2xl">

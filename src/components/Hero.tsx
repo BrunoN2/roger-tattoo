@@ -4,13 +4,12 @@ import studioHeroImg from '../assets/images/hero_tattoo_studio_1794111576826.jpg
 import { OFFICIAL_PHONE } from '../utils/budget';
 
 interface HeroProps {
-  onOpenAssistant: () => void;
   onScrollTo: (id: string) => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenAssistant, onScrollTo }) => {
+export const Hero: React.FC<HeroProps> = ({ onScrollTo }) => {
   return (
-    <section id="home" className="relative min-h-[90vh] sm:min-h-screen flex items-center overflow-hidden pt-24 pb-16">
+    <section id="home" className="relative min-h-[82vh] sm:min-h-screen flex items-center overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-16">
       
       {/* Background Video - More apparent and cinematic, positioned to highlight action */}
       <div className="absolute inset-0 z-0 overflow-hidden">

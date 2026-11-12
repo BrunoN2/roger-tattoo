@@ -88,6 +88,104 @@ export function generateStyleWhatsAppLink(styleName: string, customNote?: string
   return `https://wa.me/${OFFICIAL_PHONE}?text=${encodeURIComponent(lines.join('\n'))}`;
 }
 
+export const SCHEDULE_TIME_SLOTS = [
+  '13:30',
+  '14:00',
+  '14:30',
+  '15:00',
+  '15:30',
+  '16:00',
+  '16:30',
+  '17:00',
+  '17:30',
+  '18:00',
+  '18:30',
+  '19:00',
+  '19:30'
+] as const;
+
+export const PT_BR_MONTHS = [
+  'Janeiro',
+  'Fevereiro',
+  'Março',
+  'Abril',
+  'Maio',
+  'Junho',
+  'Julho',
+  'Agosto',
+  'Setembro',
+  'Outubro',
+  'Novembro',
+  'Dezembro'
+] as const;
+
+export const PT_BR_WEEKDAYS_SHORT = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'] as const;
+
+export function toIsoDateString(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+export interface CalendarCell {
+  iso: string;
+  day: number;
+}
+
+export function getCalendarDays(year: number, monthIndex: number): Array<CalendarCell | null> {
+  const firstWeekday = new Date(year, monthIndex, 1).getDay();
+  const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+  const cells: Array<CalendarCell | null> = [];
+
+  for (let i = 0; i < firstWeekday; i++) {
+    cells.push(null);
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const monthStr = String(monthIndex + 1).padStart(2, '0');
+    const dayStr = String(day).padStart(2, '0');
+    cells.push({
+      iso: `${year}-${monthStr}-${dayStr}`,
+      day
+    });
+  }
+
+  return cells;
+}
+
+export function formatScheduleDatePtBr(dateIso: string): string {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateIso);
+  if (!match) return dateIso;
+  const year = Number(match[1]);
+  const monthIndex = Number(match[2]) - 1;
+  const day = Number(match[3]);
+  const weekdayNames = [
+    'domingo',
+    'segunda-feira',
+    'terça-feira',
+    'quarta-feira',
+    'quinta-feira',
+    'sexta-feira',
+    'sábado'
+  ];
+  const weekday = weekdayNames[new Date(year, monthIndex, day).getDay()];
+  return `${match[3]}/${match[2]}/${match[1]} (${weekday})`;
+}
+
+export function generateScheduleWhatsAppLink(dateIso: string, time: string): string {
+  const formattedDate = formatScheduleDatePtBr(dateIso);
+  const lines = [
+    'Olá Roger! Vim pelo site oficial e gostaria de solicitar um agendamento.',
+    `• Data de preferência: ${formattedDate}`,
+    `• Horário de preferência: ${time}`,
+    '',
+    'Obs.: Sei que o horário desejado pode ou não estar disponível na agenda. Podemos confirmar?'
+  ];
+
+  return `https://wa.me/${OFFICIAL_PHONE}?text=${encodeURIComponent(lines.join('\n'))}`;
+}
+
 export function searchFaq(query: string) {
   if (!query || !query.trim()) return FAQ_DATA;
   const q = query.toLowerCase().trim();

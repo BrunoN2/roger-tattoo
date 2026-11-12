@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, MessageCircle, Sparkles, Check, ArrowUpRight, ChevronDown, Layers } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MessageCircle, Check, ArrowUpRight, ChevronDown, Layers } from 'lucide-react';
 import { generateStyleWhatsAppLink } from '../utils/budget';
 
 // High-fidelity generated studio assets
@@ -26,74 +26,74 @@ export const STYLES_CATALOG: StyleCategory[] = [
   {
     id: 'Maori',
     name: 'Maori & Tribal',
-    tagline: 'Geometria sagrada, preenchimento sólido e respeito à musculatura',
-    description: 'Projetos de inspiração polinésia que vestem a anatomia corporal com linhas imponentes, curvas dinâmicas e preenchimento preto puro.',
-    highlights: ['Encaixe anatômico perfeito', 'Linhas de alta precisão', 'Simbologia de força e proteção'],
+    tagline: 'Geometria sagrada e encaixe muscular',
+    description: 'Inspiração polinésia com linhas imponentes e preenchimento preto sólido.',
+    highlights: ['Encaixe anatômico', 'Traços de alta precisão', 'Preto sólido duradouro'],
     image: maoriImg,
-    badge: 'Conceito Maori'
+    badge: 'Maori'
   },
   {
     id: 'Nordica',
     name: 'Nórdica & Viking',
-    tagline: 'Runas, nós celtas, elmos e mitologia nórdica',
-    description: 'Composições detalhadas com nós entrelaçados, estética rúnica e deuses nórdicos com sombreamento profundo que valorizam ombros, braços e costas.',
-    highlights: ['Trabalho de runas e nós entrelaçados', 'Contraste dramático', 'Estudo autoral na pele'],
+    tagline: 'Runas, nós celtas e mitologia nórdica',
+    description: 'Composições rúnicas e nórdicas com contraste profundo para braços e ombros.',
+    highlights: ['Runas e nós celtas', 'Contraste dramático', 'Desenho autoral'],
     image: norseVikingImg,
-    badge: 'Conceito Viking'
+    badge: 'Viking'
   },
   {
     id: 'Grega',
-    name: 'Grega & Realismo Black and Grey',
-    tagline: 'Sombras ultra-suaves, estátuas clássicas e contraste escultural',
-    description: 'Especialidade de alto nível técnico que reproduz a textura de esculturas de mármore clássicas, deuses olímpicos e expressões humanas com transições suaves de cinza.',
-    highlights: ['Textura realista de mármore', 'Sombreamento fluído e duradouro', 'Pigmentos certificados de alta pureza'],
+    name: 'Grega & Realismo',
+    tagline: 'Estátuas clássicas e Black & Grey',
+    description: 'Textura de mármore e sombreamento suave com acabamento escultural.',
+    highlights: ['Efeito mármore realista', 'Sombras suaves', 'Pigmentos certificados'],
     image: realismImg,
-    badge: 'Realismo Escultural'
+    badge: 'Realismo'
   },
   {
     id: 'Egipcia',
     name: 'Egípcia Mística',
-    tagline: 'Anúbis, Hórus, hieróglifos e estética milenar',
-    description: 'Artes com divindades do antigo Egito, escaravelhos e adornos dourados em tons de preto e cinza com riqueza de detalhes ornamentais.',
-    highlights: ['Precisão nos detalhes iconográficos', 'Textura de baixo-relevo antigo', 'Composição harmoniosa no antebraço ou perna'],
+    tagline: 'Anúbis, Hórus e simbolismo milenar',
+    description: 'Divindades egípcias e adornos em preto e cinza ricos em detalhes.',
+    highlights: ['Detalhes ornamentais', 'Relevo clássico', 'Composição harmônica'],
     image: egyptianImg,
-    badge: 'Mitologia Egípcia'
+    badge: 'Egípcia'
   },
   {
     id: 'Flores',
-    name: 'Flores & Fineline Botânico',
-    tagline: 'Traços ultrafinos, leveza botânica e elegância atemporal',
-    description: 'Tatuagens botânicas com agulhas de calibre fino (03RL/05RL), simulando ilustrações botânicas delicadas que acompanham a silhueta com leveza e sutileza.',
-    highlights: ['Traço fino e sem expansão excessiva', 'Movimento orgânico nas curvas do corpo', 'Cicatrização rápida e suave'],
+    name: 'Flores & Fineline',
+    tagline: 'Traços ultrafinos e leveza botânica',
+    description: 'Botânica delicada com agulhas finas que acompanham as curvas do corpo.',
+    highlights: ['Traço fino e nítido', 'Movimento orgânico', 'Cicatrização leve'],
     image: floralImg,
-    badge: 'Fineline Botânica'
+    badge: 'Fineline'
   },
   {
     id: 'Anime',
     name: 'Anime & Geek',
-    tagline: 'Mangás, games, traço dinâmico e estética pop contemporânea',
-    description: 'Personagens icônicos, hachuras de mangá e enquadramentos de ação desenhados com a energia das animações e games favoritos.',
-    highlights: ['Hachuras e traço fiel aos mangás', 'Composição cinética de ação', 'Adaptação do 2D para a tridimensionalidade da pele'],
+    tagline: 'Mangás, games e traço dinâmico',
+    description: 'Personagens e cenas de ação com hachuras fiéis e acabamento moderno.',
+    highlights: ['Hachuras estilo mangá', 'Enquadramento dinâmico', 'Adaptação na pele'],
     image: animeImg,
-    badge: 'Cultura Geek & Mangá'
+    badge: 'Geek'
   },
   {
     id: 'Personalizados',
-    name: 'Projetos Autorais Sob Medida',
-    tagline: 'Criação exclusiva desenhada do zero para você',
-    description: 'Você traz a sua ideia, memórias ou referências e o Roger desenvolve uma obra única, estudando diretamente o fluxo visual e a anatomia da região.',
-    highlights: ['Projeto 100% exclusivo', 'Estudo anatômico sob medida para o corpo', 'Atendimento 1-a-1 com o artista'],
+    name: 'Projetos Autorais',
+    tagline: 'Criação exclusiva desenhada do zero',
+    description: 'Sua ideia transformada em arte única, planejada para a sua anatomia.',
+    highlights: ['100% exclusivo', 'Estudo anatômico', 'Atendimento individual'],
     image: artistWorkingImg,
-    badge: 'Arte Autoral'
+    badge: 'Autoral'
   },
   {
     id: 'Piercing',
-    name: 'Body Piercing & Titânio',
-    tagline: 'Joalheria biocompatível (ASTM F-136) e agulhas americanas',
-    description: 'Perfurações com rigor hospitalar, técnica asséptica e joias em titânio grau implante ou aço cirúrgico para uma cicatrização sem traumas.',
-    highlights: ['Titânio Grau Implante (Livre de níquel)', 'Perfuração rápida com agulha americana', 'Acompanhamento do pós-procedimento'],
+    name: 'Body Piercing',
+    tagline: 'Titânio grau implante e biossegurança',
+    description: 'Aplicações assépticas com agulha americana e joias biocompatíveis.',
+    highlights: ['Titânio ASTM F-136', 'Material 100% estéril', 'Pós-procedimento assistido'],
     image: piercingImg,
-    badge: 'Body Piercing'
+    badge: 'Piercing'
   }
 ];
 
@@ -133,104 +133,98 @@ export const StylesCarousel: React.FC = () => {
   };
 
   return (
-    <section id="portfolio" className="py-24 bg-zinc-900 border-t border-zinc-800">
+    <section id="portfolio" className="py-12 sm:py-20 bg-zinc-900 border-t border-zinc-800 scroll-mt-16 sm:scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Title */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-4 font-cinzel">
+        {/* Compact Title */}
+        <div className="text-center mb-5 sm:mb-8">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tight mb-2.5 font-cinzel">
             Escolha seu estilo
           </h2>
-          <div className="w-24 h-1 bg-amber-600 mx-auto rounded-full mb-6"></div>
-          <p className="text-zinc-400 max-w-2xl mx-auto text-base sm:text-lg">
-            Explore nossos conceitos artísticos e selecione a inspiração perfeita para o seu projeto com o Roger.
+          <div className="w-14 sm:w-20 h-1 bg-amber-600 mx-auto rounded-full mb-2.5 sm:mb-4"></div>
+          <p className="text-zinc-400 max-w-md mx-auto text-xs sm:text-sm">
+            Selecione um estilo e envie sua ideia ao Roger.
           </p>
         </div>
 
-        {/* Clean Luxury Dropdown Menu (Substitui os botões soltos para não poluir a tela) */}
-        <div className="max-w-xl mx-auto mb-10 relative z-30" ref={dropdownRef}>
-          <div className="flex items-center gap-2">
+        {/* Compact Mobile-First Dropdown Selector */}
+        <div className="max-w-[310px] sm:max-w-sm mx-auto mb-5 sm:mb-8 relative z-30" ref={dropdownRef}>
+          <div className="flex items-center gap-1.5">
             <button
               onClick={handlePrev}
               aria-label="Estilo anterior"
-              className="p-3.5 rounded-2xl bg-zinc-950 hover:bg-zinc-800 text-zinc-400 hover:text-amber-400 border border-zinc-800 transition-colors shadow-lg shrink-0"
+              className="p-2 sm:p-2.5 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-zinc-400 hover:text-amber-400 border border-zinc-800 transition-colors shadow-md shrink-0"
               title="Estilo anterior"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={15} />
             </button>
 
             {/* Main Dropdown Button */}
-            <div className="relative flex-1">
+            <div className="relative flex-1 min-w-0">
               <button
                 type="button"
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className={`w-full bg-zinc-950 border px-5 py-3.5 rounded-2xl flex items-center justify-between text-left transition-all duration-200 shadow-xl group ${
+                aria-expanded={isDropdownOpen}
+                aria-haspopup="listbox"
+                className={`w-full bg-zinc-950 border px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl flex items-center justify-between text-left transition-all duration-200 shadow-lg group ${
                   isDropdownOpen
                     ? 'border-amber-500 ring-2 ring-amber-500/20'
                     : 'border-zinc-800 hover:border-zinc-700'
                 }`}
               >
-                <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0 group-hover:scale-105 transition-transform">
-                    <Layers size={18} />
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0">
+                    <Layers size={13} />
                   </div>
                   <div className="min-w-0">
-                    <span className="text-[10px] uppercase font-bold tracking-widest text-amber-500 block">
-                      Estilo Selecionado
+                    <span className="text-[8px] sm:text-[9px] uppercase font-bold tracking-widest text-amber-500 block leading-none mb-0.5">
+                      Estilo
                     </span>
-                    <span className="text-base sm:text-lg font-bold text-white font-cinzel truncate block">
+                    <span className="text-xs sm:text-sm font-bold text-white font-cinzel truncate block">
                       {currentStyle.name}
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2.5 shrink-0 pl-2">
-                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400">
-                    {currentIndex + 1} de {STYLES_CATALOG.length}
+                <div className="flex items-center gap-1 shrink-0 pl-1.5">
+                  <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400">
+                    {currentIndex + 1}/{STYLES_CATALOG.length}
                   </span>
-                  <div className={`p-1 rounded-lg text-zinc-400 group-hover:text-amber-400 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180 text-amber-400' : ''}`}>
-                    <ChevronDown size={20} />
+                  <div className={`text-zinc-400 group-hover:text-amber-400 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-amber-400' : ''}`}>
+                    <ChevronDown size={15} />
                   </div>
                 </div>
               </button>
 
-              {/* Dropdown Popover List */}
+              {/* Compact Dropdown Popover List */}
               {isDropdownOpen && (
-                <div className="absolute top-full left-0 right-0 mt-2 bg-zinc-950/98 backdrop-blur-xl border border-zinc-800 rounded-2xl shadow-2xl p-2 max-h-96 overflow-y-auto space-y-1 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-zinc-400 border-b border-zinc-900 flex justify-between items-center">
-                    <span>Todos os Estilos &amp; Serviços</span>
-                    <span className="text-amber-500">Toque para selecionar</span>
-                  </div>
-                  {STYLES_CATALOG.map((st, idx) => {
+                <div
+                  role="listbox"
+                  aria-label="Selecionar estilo"
+                  className="absolute top-full left-0 right-0 mt-1.5 bg-zinc-950/98 backdrop-blur-xl border border-zinc-800 rounded-xl shadow-2xl p-1 max-h-80 overflow-y-auto space-y-0.5 z-50"
+                >
+                  {STYLES_CATALOG.map((st) => {
                     const isSelected = st.id === activeStyleId;
                     return (
                       <button
                         key={st.id}
                         type="button"
+                        role="option"
+                        aria-selected={isSelected}
                         onClick={() => handleSelectStyle(st.id)}
-                        className={`w-full text-left px-4 py-3 rounded-xl transition-all flex items-center justify-between group ${
+                        className={`w-full text-left px-2.5 py-1.5 rounded-lg transition-all flex items-center justify-between gap-2 group ${
                           isSelected
                             ? 'bg-amber-600/15 border border-amber-500/40 text-white'
                             : 'hover:bg-zinc-900 border border-transparent text-zinc-300 hover:text-white'
                         }`}
                       >
-                        <div className="min-w-0 pr-3">
-                          <div className="flex items-center gap-2">
-                            <span className={`text-xs font-bold font-cinzel ${isSelected ? 'text-amber-400' : 'text-zinc-200 group-hover:text-white'}`}>
-                              {st.name}
-                            </span>
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400">
-                              {st.badge}
-                            </span>
-                          </div>
-                          <p className="text-[11px] text-zinc-400 truncate mt-0.5">
-                            {st.tagline}
-                          </p>
+                        <div className="min-w-0 flex items-center gap-2">
+                          <span className={`text-[11px] sm:text-xs font-bold font-cinzel truncate ${isSelected ? 'text-amber-400' : 'text-zinc-200 group-hover:text-white'}`}>
+                            {st.name}
+                          </span>
                         </div>
                         {isSelected && (
-                          <div className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
-                            <Check size={14} />
-                          </div>
+                          <Check size={13} className="text-amber-400 shrink-0" />
                         )}
                       </button>
                     );
@@ -242,103 +236,103 @@ export const StylesCarousel: React.FC = () => {
             <button
               onClick={handleNext}
               aria-label="Próximo estilo"
-              className="p-3.5 rounded-2xl bg-zinc-950 hover:bg-zinc-800 text-zinc-400 hover:text-amber-400 border border-zinc-800 transition-colors shadow-lg shrink-0"
+              className="p-2 sm:p-2.5 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-zinc-400 hover:text-amber-400 border border-zinc-800 transition-colors shadow-md shrink-0"
               title="Próximo estilo"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={15} />
             </button>
           </div>
         </div>
 
-        {/* Interactive Feature Carousel Card */}
-        <div className="relative bg-zinc-950 rounded-3xl border border-zinc-800 overflow-hidden shadow-2xl p-6 sm:p-10 lg:p-12">
+        {/* Interactive Feature Card (Mobile-first compact layout) */}
+        <div className="relative bg-zinc-950 rounded-2xl sm:rounded-3xl border border-zinc-800 overflow-hidden shadow-2xl p-4 sm:p-8 lg:p-10">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-10 items-center">
             
             {/* Visual Column (7 Cols) */}
             <div className="lg:col-span-7 relative group">
-              <div className="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden rounded-2xl bg-zinc-900 border border-zinc-800">
+              <div className="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden rounded-xl sm:rounded-2xl bg-zinc-900 border border-zinc-800">
                 <img
                   src={currentStyle.image}
                   alt={`${currentStyle.name} conceito`}
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-70 group-hover:opacity-85 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-75" />
                 
                 {/* Badge */}
-                <div className="absolute top-4 left-4 bg-zinc-900/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">
+                <div className="absolute top-3 left-3 bg-zinc-900/90 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
                   {currentStyle.badge}
                 </div>
 
-                <div className="absolute bottom-4 left-4 right-4">
-                  <span className="text-amber-500 text-xs font-bold tracking-widest uppercase block mb-1">
-                    Conceito em Destaque
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
+                  <span className="text-amber-500 text-[10px] sm:text-xs font-bold tracking-widest uppercase block mb-0.5">
+                    Destaque
                   </span>
-                  <h3 className="text-white text-xl sm:text-2xl font-black font-cinzel">
+                  <h3 className="text-white text-lg sm:text-2xl font-black font-cinzel">
                     {currentStyle.name}
                   </h3>
                 </div>
               </div>
 
-              {/* Prev / Next controls */}
-              <div className="flex items-center justify-between mt-4">
-                <div className="flex items-center gap-2">
+              {/* Reference & Desktop Controls */}
+              <div className="flex items-center justify-between gap-2 mt-2.5 sm:mt-4">
+                <div className="hidden sm:flex items-center gap-2">
                   <button
                     onClick={handlePrev}
                     aria-label="Estilo anterior"
-                    className="p-3 rounded-full bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 transition-colors"
+                    className="p-2.5 rounded-full bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 transition-colors"
                   >
-                    <ChevronLeft size={20} />
+                    <ChevronLeft size={16} />
                   </button>
                   <button
                     onClick={handleNext}
                     aria-label="Próximo estilo"
-                    className="p-3 rounded-full bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 transition-colors"
+                    className="p-2.5 rounded-full bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 transition-colors"
                   >
-                    <ChevronRight size={20} />
+                    <ChevronRight size={16} />
                   </button>
-                  <span className="text-xs text-zinc-500 ml-2">
-                    {currentIndex + 1} de {STYLES_CATALOG.length} estilos
+                  <span className="text-xs text-zinc-500 ml-1">
+                    {currentIndex + 1} de {STYLES_CATALOG.length}
                   </span>
                 </div>
 
                 <button
                   onClick={() => setSelectedReference(currentStyle.name)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 transition-colors ${
+                  className={`ml-auto px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-bold flex items-center gap-1.5 transition-colors ${
                     selectedReference === currentStyle.name
                       ? 'bg-amber-500/20 border border-amber-500 text-amber-300'
                       : 'bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800'
                   }`}
                 >
-                  <Check size={14} />
-                  <span>{selectedReference === currentStyle.name ? 'Base Selecionada' : 'Definir como Base'}</span>
+                  <Check size={13} />
+                  <span>{selectedReference === currentStyle.name ? 'Base Selecionada' : 'Usar como Base'}</span>
                 </button>
               </div>
             </div>
 
-            {/* Description & WhatsApp Reference Trigger (5 Cols) */}
-            <div className="lg:col-span-5 space-y-6">
+            {/* Concise Description & WhatsApp CTA (5 Cols) */}
+            <div className="lg:col-span-5 space-y-3.5 sm:space-y-5">
               <div>
-                <span className="text-amber-500 text-xs uppercase tracking-widest font-bold">
+                <span className="text-amber-500 text-[10px] sm:text-xs uppercase tracking-widest font-bold">
                   Design &amp; Anatomia
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight mt-1 font-cinzel">
+                <h3 className="text-xl sm:text-3xl font-black text-white uppercase tracking-tight mt-0.5 font-cinzel">
                   {currentStyle.name}
                 </h3>
-                <p className="text-xs sm:text-sm text-zinc-400 mt-2 italic">
+                <p className="text-xs sm:text-sm text-zinc-400 mt-1 italic">
                   "{currentStyle.tagline}"
                 </p>
               </div>
 
-              <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                 {currentStyle.description}
               </p>
 
-              {/* Highlights */}
-              <div className="space-y-2.5 pt-2 border-t border-zinc-800">
+              {/* Compact Highlights */}
+              <div className="space-y-1.5 sm:space-y-2 pt-2 border-t border-zinc-800">
                 {currentStyle.highlights.map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-zinc-300">
+                  <div key={idx} className="flex items-center gap-2 text-xs text-zinc-300">
                     <div className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
                     <span>{item}</span>
                   </div>
@@ -346,19 +340,19 @@ export const StylesCarousel: React.FC = () => {
               </div>
 
               {/* Direct WhatsApp Call to Action */}
-              <div className="pt-4">
+              <div className="pt-2 sm:pt-3">
                 <a
                   href={generateStyleWhatsAppLink(currentStyle.name)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-amber-600 hover:bg-amber-500 text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(217,119,6,0.3)] hover:shadow-[0_0_30px_rgba(217,119,6,0.5)] transition-all hover:scale-[1.02]"
+                  className="w-full bg-amber-600 hover:bg-amber-500 text-white py-3 sm:py-3.5 px-5 rounded-xl sm:rounded-2xl font-bold uppercase tracking-wider text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(217,119,6,0.3)] hover:shadow-[0_0_30px_rgba(217,119,6,0.5)] transition-all hover:scale-[1.01]"
                 >
-                  <MessageCircle size={20} />
-                  <span>Levar esta Base para o WhatsApp</span>
-                  <ArrowUpRight size={16} />
+                  <MessageCircle size={18} />
+                  <span>Enviar no WhatsApp</span>
+                  <ArrowUpRight size={15} />
                 </a>
-                <p className="text-[11px] text-zinc-500 text-center mt-2">
-                  Você envia o estilo escolhido diretamente ao Roger para alinhar data e detalhes anatômicos.
+                <p className="text-[10px] sm:text-[11px] text-zinc-500 text-center mt-2">
+                  Alinhe data e detalhes direto com o Roger.
                 </p>
               </div>
 

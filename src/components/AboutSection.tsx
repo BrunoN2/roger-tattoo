@@ -3,13 +3,13 @@ import { MapPin, ShieldCheck, Award } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="sobre" className="py-24 bg-zinc-950">
+    <section id="sobre" className="py-16 sm:py-24 bg-zinc-950 overflow-x-hidden scroll-mt-16 sm:scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           
           {/* Real Artist Photo with Luxury Border & Signature Card */}
           <div className="relative">
-            <div className="absolute -inset-4 border border-amber-600/30 rounded-3xl translate-x-3 translate-y-3 -z-10" />
+            <div className="absolute -inset-2 sm:-inset-4 border border-amber-600/30 rounded-3xl translate-x-1.5 translate-y-1.5 sm:translate-x-3 sm:translate-y-3 -z-10" />
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-zinc-800 bg-zinc-900 group">
               <img
                 src="./assets/aistudio/c7d5dd4e-520d-4605-bb71-9b809d5fc13a_a3ab6242.JPG"
